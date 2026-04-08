@@ -1,4 +1,5 @@
-# Implement Character Filtering with Bulma UI
+
+# Task: Implement Character Filtering with Bulma UI
 Objective: Integrate Bulma-styled filter controls into the Vue.js application to filter Rick and Morty characters by Status and Gender via API query parameters.
 
 ## UI Layout (Bulma Components)
@@ -14,7 +15,7 @@ Default State: Use .is-light for inactive buttons to maintain visual hierarchy.
 1. Template Structure
 Use Bulma's level or columns system to position the filter bars above the character grid:
 
-HTML
+```HTML
 <nav class="level">
   <div class="level-left">
     <div class="level-item">
@@ -29,6 +30,7 @@ HTML
     </div>
   </div>
 </nav>
+```
 2. Logic & State
 Reactive Params: Maintain a filters object in your Vue component:
 
