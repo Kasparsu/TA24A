@@ -617,3 +617,22 @@ The lockfile must be committed so the grader gets exactly the same package versi
 
 **The app shows a blank page**
 Open the browser console (`F12`). If you see an error like `Failed to resolve import`, check the file paths in your `router/index.js` imports — they must match the actual filenames exactly, including capitalisation.
+
+**"I used `git add .` everywhere and now my commits have random files in them"**
+Check what you are about to stage before committing with `git status` and `git diff --staged`. If you already committed the wrong files, fix the last commit with:
+```bash
+git reset HEAD~1          # undo the commit, keep the files
+git add only-the-right-files
+git commit -m "Correct message"
+```
+
+**"I wrote bad commit messages and already pushed"**
+For the last commit only (if you are the only one working on this):
+```bash
+git commit --amend -m "Better message here"
+git push --force-with-lease
+```
+For earlier commits, use `git rebase -i` to reword them. Do this before submitting.
+
+**"All my work is in one giant commit"**
+If you forgot to commit at each checkpoint and now have one massive `git add . && git commit -m "everything"`, use `git reset HEAD~1` to undo it (your files are kept), then re-stage and commit in the correct atomic chunks.
